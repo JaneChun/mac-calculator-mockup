@@ -1,0 +1,150 @@
+/* 전역적인 속성 */
+@font-face {
+    font-family: San-Francisco-regular;
+    src: url(./fonts/SFUIText-Regular.otf);
+}
+
+@font-face {
+    font-family: San-Francisco-light;
+    src: url(./fonts/SFUIText-Light.otf);
+}
+
+@font-face {
+    font-family: San-Francisco-display-thin;
+    src: url(./fonts/SFNSDisplay-Thin.otf);
+}
+
+* {
+    box-sizing: border-box;
+    color: rgb(237, 237, 237);
+    font-family: San-Francisco-regular;
+}
+
+button {
+    margin: 0;
+    cursor: pointer;
+    border: 0.5px solid rgb(39, 37, 42);
+    font-size: 1.7rem;
+    width: 5.469rem;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center; /* body요소의 중앙에 계산기 정렬하기 */
+}
+
+.calculator {
+    width: 21.875rem;
+    height: 31.25rem;
+    background-color: rgb(39, 37, 42);
+    border: 0.5px solid rgb(39, 37, 42);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px 5px rgba(0, 0, 0, 0.5);
+
+    display: flex; /* 자식 요소 : #bar, #display, #button_container */
+    flex-direction: column;
+}
+
+#bar {
+    padding: 7px 0 0 10px;
+
+    flex-grow: 0.25; /* 부모 요소 : .calculator */
+}
+
+#display {
+    font-size: 5rem;
+    margin-right: 15px;
+    font-family: San-Francisco-display-thin;
+    flex-grow: 1; /* 부모 요소 : .calculator */
+
+    display: flex; /* 오른쪽, 아래 정렬하기  */
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.button_container {
+    flex-grow: 10; /* 부모 요소 : .calculator */
+
+    display: flex; /* 자식 요소 : .operator1_number, .operator2 */
+    flex-direction: row;
+}
+
+.operator1_number {
+    display: flex; /* 자식 요소 : .operator1, .number */
+    flex-direction: column;
+}
+
+.operator1 {
+    flex-grow: 1; /* 부모 요소 : .operator_number */
+
+    display: flex; /* 자식 요소 : .operator1 button */
+}
+
+.operator1 button {
+    background-color: rgb(59, 57, 62);
+
+    flex-grow: 1;
+}
+
+.number {
+    flex-grow: 4; /* 부모 요소 : .operator_number */
+
+    display: flex; /* 자식 요소 : .one_to_nine, .zero_and_dot */
+    flex-direction: column;
+}
+
+.number button {
+    background-color: rgb(91, 92, 95);
+}
+
+.one_to_nine {
+    flex-grow: 3; /* 부모 요소 : .number */
+
+    display: flex; /* 자식 요소 : .one_to_nine button */
+    flex-wrap: wrap;
+    flex-direction: row-reverse;
+}
+
+.one_to_nine button {
+    flex-grow: 1; /* 모든 버튼이 공백을 1의 비율로 차지 */
+}
+
+.zero_and_dot {
+    flex-grow: 1; /* 부모 요소 : .number */
+
+    display: flex; /* 자식 요소 : .zero_and_dot button */
+    flex-direction: row-reverse;
+}
+
+#zero {
+    flex-grow: 1; /* 부모 요소 : .zero_and_dot */
+}
+
+.operator2 {
+    display: flex; /* 자식 요소 : .operator2 button */
+    flex-direction: column;
+}
+
+.operator2 button {
+    background-color: rgb(242, 163, 60);
+
+    flex-grow: 1; /* 부모 요소 : .operator2 */
+}
+
+.operator1 button:active {
+    background-color: rgb(91, 92, 95);
+}
+
+.number button:active {
+    background-color: rgb(160, 158, 161);
+}
+
+.operator2 button:active {
+    background-color: rgb(192, 129, 45);
+}
